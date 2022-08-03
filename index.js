@@ -12,9 +12,9 @@ async function addJobs () {
 await addJobs()
 
 const worker = new Worker('foo', async job => {
-  // Will print { foo: 'bar' } for the first job
-  // and { qux: 'baz' } for the second
-  console.log(job.data)
+  // Will print { foo: 'bar' } for the first job and { qux: 'baz' } for the second. We pass our strings seperately
+  // rather than formatting them as one to avoid the output being '2 [object Object]'
+  console.log(job.id, job.data)
 }, { connection: redisConfig })
 
 worker.on('completed', job => {
