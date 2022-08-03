@@ -29,6 +29,10 @@ npm ci
 
 My preference is to run Redis using Docker, so [install Docker](https://docs.docker.com/get-docker/) if you don't already have it. You can then call `make up` to start a Redis server using Docker.
 
+## Configuration
+
+The project will connect to Redis using `localhost` and `6379` by default. If you need to change this check out [.env.example](.env.example) for how.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at <https://github.com/cruikshanks/simple-bullmq>.
