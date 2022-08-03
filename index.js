@@ -3,7 +3,16 @@ import { config as redisConfig } from './config/redis.config.js'
 import { Queue, QueueEvents, Worker } from 'bullmq'
 
 const QUEUE_NAME = 'testing-queue'
-const myQueue = new Queue(QUEUE_NAME, { connection: redisConfig })
+const myQueue = new Queue(
+  QUEUE_NAME,
+  {
+    connection: redisConfig,
+    defaultJobOptions: {
+      removeOnComplete: true,
+      removeOnFail: true
+    }
+  }
+)
 
 async function addJobs () {
   await myQueue.add('myJobName', { foo: 'bar' })
