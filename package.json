@@ -1,0 +1,25 @@
+{
+  "name": "simple-bullmq",
+  "version": "0.1.0",
+  "description": "Built to help learn BullMQ",
+  "homepage": "https://github.com/cruikshanks/simple-bullmq",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cruikshanks/simple-bullmq"
+  },
+  "author": "cruikshanks",
+  "license": "MIT",
+  "dependencies": {
+    "bullmq": "^1.86.10",
+    "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "standard": ">=17.0.0"
+  }
+}
