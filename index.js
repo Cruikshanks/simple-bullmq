@@ -23,7 +23,7 @@ worker.on('failed', (job, err) => {
   console.log(`${job.id} has failed with ${err.message}`)
 })
 
-const queueEvents = new QueueEvents()
+const queueEvents = new QueueEvents('foo')
 
 queueEvents.on('waiting', ({ jobId }) => {
   console.log(`${jobId} is waiting`)
