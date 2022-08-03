@@ -14,6 +14,8 @@ const worker = new Worker(QUEUE_NAME, async job => {
   // Will print { foo: 'bar' } for the first job and { qux: 'baz' } for the second. We pass our strings seperately
   // rather than formatting them as one to avoid the output being '2 [object Object]'
   console.log(job.id, job.data)
+
+  return new Date().toUTCString()
 }, { connection: redisConfig })
 
 worker.on('completed', job => {
@@ -34,8 +36,8 @@ queueEvents.on('active', ({ jobId, prev }) => {
   console.log(`${jobId} is now active; previous status was ${prev}`)
 })
 
-queueEvents.on('completed', ({ jobId, returnValue }) => {
-  console.log(`${jobId} has completed and returned ${returnValue}`)
+queueEvents.on('completed', ({ jobId, returnvalue }) => {
+  console.log(`${jobId} has completed and returned ${returnvalue}`)
 })
 
 queueEvents.on('failed', ({ jobId, failedReason }) => {
